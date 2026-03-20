@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Лера Федорцова — веб-дизайнер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #cfccc4;
+            color: #1e1e1e;
+            line-height: 1.4;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* плавный скролл */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: repeating-linear-gradient(
+                45deg,
+                rgba(0,0,0,0.01) 0px,
+                rgba(0,0,0,0.01) 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            z-index: 0;
+        }
+
+        /* Эффекты телевизора */
+        .tv-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: repeating-radial-gradient(
+                circle at 20% 30%,
+                rgba(0,0,0,0.05) 0px,
+                rgba(0,0,0,0.03) 1px,
+                transparent 2px,
+                transparent 4px
+            );
+            background-size: 200% 200%;
+            animation: noiseMove 0.3s steps(3) infinite;
+            opacity: 0.25;
+        }
+
+        @keyframes noiseMove {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .tv-flicker {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            background: rgba(0,0,0,0.03);
+            animation: flickerLight 0.12s infinite alternate;
+        }
+
+        @keyframes flickerLight {
+            0% { opacity: 0.02; }
+            100% { opacity: 0.09; }
+        }
+
+        .tv-scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9997;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0,0,0,0.03) 0px,
+                rgba(0,0,0,0.03) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            animation: scanlinesMove 8s linear infinite;
+        }
+
+        @keyframes scanlinesMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+
+        .tv-shake {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9996;
+            animation: subtleShake 0.2s infinite alternate;
+        }
+
+        @keyframes subtleShake {
+            0% { transform: translate(0px, 0px); }
+            100% { transform: translate(0.3px, -0.2px); }
+        }
+
+        .tv-vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9995;
+            box-shadow: inset 0 0 80px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero секция */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            min-height: 100vh;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 560px;
+        }
+
+        .hero-photo {
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: none;
+            transform: translateY(0);
+            transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .hero-photo:hover {
+            transform: translateY(-8px);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .hero-photo:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Длинная линия под фото */
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 70px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 2px;
+            pointer-events: none;
+            z-index: 2;
+            transform: scaleX(0);
+            animation: lineReveal 0.8s ease-out 0.3s forwards;
+        }
+
+        @keyframes lineReveal {
+            from { transform: scaleX(0); transform-origin: left; }
+            to { transform: scaleX(1); transform-origin: left; }
+        }
+
+        h1 {
+            font-size: clamp(44px, 8vw, 80px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin-bottom: 28px;
+            color: #1a1a1a;
+        }
+
+        .hero-tagline {
+            font-size: clamp(18px, 4vw, 20px);
+            margin-bottom: 42px;
+            color: #5a5a5a;
+            line-height: 1.5;
+        }
+
+        h2 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            margin-bottom: 56px;
+            color: #1a1a1a;
+        }
+
+        h3 {
+            font-size: clamp(22px, 4vw, 26px);
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1e1e1e;
+            color: white;
+            padding: 16px 42px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 550;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            font-size: 16px;
+            letter-spacing: -0.01em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            background: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.2);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 36px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.85);
+            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.15);
+        }
+
+        .price {
+            font-size: clamp(30px, 5vw, 38px);
+            font-weight: 700;
+            margin: 20px 0 24px;
+            color: #1a1a1a;
+        }
+
+        .service-list {
+            list-style: none;
+            margin: 28px 0 36px;
+        }
+
+        .service-list li {
+            margin-bottom: 14px;
+            color: #4a4a4a;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #1e1e1e;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+        }
+
+        .portfolio-item {
+            text-decoration: none;
+            color: inherit;
+            text-align: center;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            background: #c2beb5;
+            border-radius: 32px;
+            margin-bottom: 24px;
+            transition: all 0.5s ease;
+            filter: grayscale(100%);
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.02);
+            filter: grayscale(70%);
+            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
+        }
+
+        .portfolio-item p {
+            font-size: 17px;
+            font-weight: 450;
+            color: #3a3a3a;
+            letter-spacing: -0.01em;
+            line-height: 1.45;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .project-title {
+            font-weight: 650;
+            color: #1a1a1a;
+            letter-spacing: -0.01em;
+            font-size: 18px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .step {
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 36px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.75);
+        }
+
+        .step-number {
+            font-size: 52px;
+            font-weight: 700;
+            color: #b0aca2;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .support-card {
+            background: rgba(255,255,255,0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 36px;
+            padding: 52px;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: all 0.4s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.75);
+        }
+
+        .footer {
+            padding: 60px 0 50px;
+            text-align: center;
+            color: #7a7a7a;
+            font-size: 14px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+
+        /* ========== АДАПТИВНОСТЬ ========== */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 24px;
+            }
+            .hero {
+                gap: 50px;
+                padding: 60px 0;
+            }
+            .services-grid {
+                gap: 24px;
+            }
+            .service-card {
+                padding: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                text-align: center;
+                min-height: auto;
+                padding: 48px 0 64px;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .hero-photo {
+                max-width: 380px;
+                margin: 0 auto;
+                border-radius: 32px;
+            }
+            
+            .hero::after {
+                bottom: 55px;
+            }
+            
+            h1 {
+                margin-bottom: 20px;
+            }
+            
+            .hero-tagline {
+                margin-bottom: 32px;
+            }
+            
+            h2 {
+                margin-bottom: 40px;
+                text-align: center;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .services-grid,
+            .portfolio-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .service-card {
+                padding: 28px;
+                text-align: center;
+            }
+            
+            .service-list li {
+                text-align: left;
+            }
+            
+            .portfolio-item p {
+                max-width: 100%;
+                font-size: 15px;
+            }
+            
+            .project-title {
+                font-size: 17px;
+            }
+            
+            .step {
+                padding: 28px;
+                text-align: center;
+            }
+            
+            .step-number {
+                font-size: 44px;
+            }
+            
+            .support-card {
+                padding: 32px;
+                text-align: center;
+            }
+            
+            .btn {
+                padding: 14px 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .hero-photo {
+                max-width: 300px;
+            }
+            
+            .hero::after {
+                bottom: 45px;
+            }
+            
+            .service-card {
+                padding: 24px;
+            }
+            
+            .price {
+                font-size: 28px;
+            }
+            
+            .portfolio-img {
+                border-radius: 24px;
+            }
+            
+            .step {
+                padding: 24px;
+            }
+            
+            .support-card {
+                padding: 28px;
+            }
+            
+            .footer {
+                padding: 40px 0 30px;
+            }
+        }
+
+        /* Анимация появления элементов */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* задержки для последовательной анимации */
+        .delay-1 { transition-delay: 0.05s; }
+        .delay-2 { transition-delay: 0.1s; }
+        .delay-3 { transition-delay: 0.15s; }
+        .delay-4 { transition-delay: 0.2s; }
+    </style>
+</head>
+<body>
+
+    <div class="tv-noise"></div>
+    <div class="tv-flicker"></div>
+    <div class="tv-scanlines"></div>
+    <div class="tv-shake"></div>
+    <div class="tv-vignette"></div>
+
+<main>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <h1 class="fade-up visible">Лера Федорцова<br>веб-дизайнер</h1>
+                <p class="hero-tagline fade-up visible delay-1">
+                    Создаю сайты, которые решают задачи бизнеса.<br>
+                    С пониманием маркетинга и аудитории.
+                </p>
+                <a href="#portfolio" class="btn fade-up visible delay-2">Смотреть работы →</a>
+            </div>
+            <div class="hero-photo fade-up visible delay-1">
+                <img src="images/lera-photo.jpg" alt="Лера Федорцова — веб-дизайнер">
+            </div>
+        </div>
+    </div>
+    
+    <div id="portfolio" class="section">
+        <div class="container">
+            <h2 class="fade-up">Проекты</h2>
+            <div class="portfolio-grid">
+                <a href="https://yoga-akula.ru" target="_blank" class="portfolio-item fade-up delay-1">
+                    <img src="images/yoga-site.jpg" alt="Yoga by Akula" class="portfolio-img" onerror="this.src='https://placehold.co/800x500/c2beb5/5a5a5a?text=Yoga+by+Akula'">
+                    <p><span class="project-title">Yoga by Akula</span><br>сайт йога-клуба с онлайн-практиками</p>
+                </a>
+                <a href="https://volley-fvl.ru" target="_blank" class="portfolio-item fade-up delay-2">
+                    <img src="images/volley-site.jpg" alt="Volley FVL" class="portfolio-img" onerror="this.src='https://placehold.co/800x500/c2beb5/5a5a5a?text=Volley+FVL'">
+                    <p><span class="project-title">Volley FVL</span><br>сайт волейбольного клуба</p>
+                </a>
+            </div>
+            <p style="text-align: center; margin-top: 40px; color: #7a7a7a; font-size: 13px; letter-spacing: 0.3px;" class="fade-up delay-3">
+                ※ добавить свои фото — положите в папку images: yoga-site.jpg и volley-site.jpg
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2 class="fade-up">Услуги и стоимость</h2>
+            <div class="services-grid">
+                <div class="service-card fade-up delay-1">
+                    <h3>Лендинг</h3>
+                    <div class="price">25 000 — 40 000 ₽</div>
+                    <ul class="service-list">
+                        <li>Анализ ЦА и структуры</li>
+                        <li>Дизайн и адаптивная вёрстка</li>
+                        <li>Анимации и эффекты</li>
+                        <li>Правки и поддержка 14 дней</li>
+                    </ul>
+                    <a href="#contact" class="btn">Заказать →</a>
+                </div>
+                <div class="service-card fade-up delay-2">
+                    <h3>Многостраничный сайт</h3>
+                    <div class="price">40 000 — 70 000 ₽</div>
+                    <ul class="service-list">
+                        <li>Прототипирование и UX</li>
+                        <li>Уникальный дизайн</li>
+                        <li>Чистая вёрстка HTML/CSS/JS</li>
+                        <li>Базовая SEO-оптимизация</li>
+                    </ul>
+                    <a href="#contact" class="btn">Заказать →</a>
+                </div>
+                <div class="service-card fade-up delay-3">
+                    <h3>Сайт под ключ</h3>
+                    <div class="price">60 000 — 90 000 ₽</div>
+                    <ul class="service-list">
+                        <li>Всё из предыдущих тарифов</li>
+                        <li>Интеграция с Telegram/Instagram</li>
+                        <li>Подключение форм и оплаты</li>
+                        <li>Поддержка после запуска</li>
+                    </ul>
+                    <a href="#contact" class="btn">Заказать →</a>
+                </div>
+                <div class="service-card fade-up delay-4">
+                    <h3>Поддержка и доработки</h3>
+                    <div class="price">3 000 — 6 000 ₽/мес</div>
+                    <ul class="service-list">
+                        <li>Регулярные обновления</li>
+                        <li>Правки контента</li>
+                        <li>Консультации 24/7</li>
+                        <li>Администрирование</li>
+                    </ul>
+                    <a href="#contact" class="btn">Заказать →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2 class="fade-up">Как мы работаем</h2>
+            <div class="steps-grid">
+                <div class="step fade-up delay-1">
+                    <div class="step-number">01</div>
+                    <h3>Исследование</h3>
+                    <p>Анализирую бизнес, конкурентов, задачи аудитории. Формирую структуру.</p>
+                </div>
+                <div class="step fade-up delay-2">
+                    <div class="step-number">02</div>
+                    <h3>Дизайн</h3>
+                    <p>Создаю концепцию, интерфейс, адаптив под мобильные устройства.</p>
+                </div>
+                <div class="step fade-up delay-3">
+                    <div class="step-number">03</div>
+                    <h3>Вёрстка</h3>
+                    <p>Пишу чистый HTML/CSS/JS. Адаптив, анимации, эффекты.</p>
+                </div>
+                <div class="step fade-up delay-4">
+                    <div class="step-number">04</div>
+                    <h3>Запуск и поддержка</h3>
+                    <p>Передаю проект, обучаю управлению, остаюсь на связи.</p>
+                </div>
+            </div>
+
+            <div class="support-card fade-up">
+                <h3>Поддержка после запуска</h3>
+                <p style="margin: 16px 0; color: #5a5a5a;">Я не исчезаю. Помогаю с управлением, вношу правки, добавляю новые страницы — оплата по факту работ в конце месяца.</p>
+                <span style="font-weight: 650;">3 000 — 6 000 ₽/мес</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="section">
+        <div class="container" style="text-align: center;">
+            <h2 class="fade-up">Давайте работать вместе</h2>
+            <p style="font-size: 18px; margin-bottom: 32px; color: #5a5a5a;" class="fade-up delay-1">Расскажите о проекте — я покажу, как сделать его эффективным</p>
+            <a href="https://t.me/ваш_логин" target="_blank" class="btn fade-up delay-2">Написать в Telegram →</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>© Лера Федорцова — веб-дизайнер, 2026</p>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Анимация при скролле
+    const animatedElements = document.querySelectorAll('.fade-up, .section');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                if (entry.target.classList.contains('section')) {
+                    entry.target.classList.add('visible');
+                }
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    animatedElements.forEach(el => observer.observe(el));
+    
+    // Для секций также добавляем класс visible
+    const sections = document.querySelectorAll('.section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                sectionObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    sections.forEach(section => sectionObserver.observe(section));
+    
+    // Плавный скролл для ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
