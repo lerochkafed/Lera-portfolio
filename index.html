@@ -21,7 +21,6 @@
             overflow-x: hidden;
         }
 
-        /* плавный скролл */
         html {
             scroll-behavior: smooth;
         }
@@ -186,11 +185,11 @@
             transform: scale(1.03);
         }
 
-        /* Длинная линия под фото */
+        /* ДЛИННАЯ ЛИНИЯ — на всю ширину, чётко под фото */
         .hero::after {
             content: "";
             position: absolute;
-            bottom: 70px;
+            bottom: 80px;
             left: 0;
             width: 100%;
             height: 2px;
@@ -198,13 +197,6 @@
             border-radius: 2px;
             pointer-events: none;
             z-index: 2;
-            transform: scaleX(0);
-            animation: lineReveal 0.8s ease-out 0.3s forwards;
-        }
-
-        @keyframes lineReveal {
-            from { transform: scaleX(0); transform-origin: left; }
-            to { transform: scaleX(1); transform-origin: left; }
         }
 
         h1 {
@@ -451,6 +443,9 @@
                 gap: 50px;
                 padding: 60px 0;
             }
+            .hero::after {
+                bottom: 70px;
+            }
             .services-grid {
                 gap: 24px;
             }
@@ -466,10 +461,10 @@
             
             .hero {
                 grid-template-columns: 1fr;
-                gap: 48px;
+                gap: 40px;
                 text-align: center;
                 min-height: auto;
-                padding: 48px 0 64px;
+                padding: 50px 0 70px;
             }
             
             .hero-content {
@@ -478,13 +473,18 @@
             }
             
             .hero-photo {
-                max-width: 380px;
+                max-width: 320px;
                 margin: 0 auto;
                 border-radius: 32px;
             }
             
+            /* ЛИНИЯ НА МОБИЛЬНЫХ — строго под фото */
             .hero::after {
-                bottom: 55px;
+                bottom: auto;
+                top: calc(100% - 85px);
+                left: 0;
+                width: 100%;
+                height: 2px;
             }
             
             h1 {
@@ -513,7 +513,7 @@
             
             .service-card {
                 padding: 28px;
-                text-align: center;
+                text-align: left;
             }
             
             .service-list li {
@@ -531,7 +531,7 @@
             
             .step {
                 padding: 28px;
-                text-align: center;
+                text-align: left;
             }
             
             .step-number {
@@ -540,7 +540,7 @@
             
             .support-card {
                 padding: 32px;
-                text-align: center;
+                text-align: left;
             }
             
             .btn {
@@ -554,11 +554,11 @@
             }
             
             .hero-photo {
-                max-width: 300px;
+                max-width: 280px;
             }
             
             .hero::after {
-                bottom: 45px;
+                top: calc(100% - 70px);
             }
             
             .service-card {
@@ -586,7 +586,7 @@
             }
         }
 
-        /* Анимация появления элементов */
+        /* Анимация появления */
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
@@ -598,7 +598,6 @@
             transform: translateY(0);
         }
 
-        /* задержки для последовательной анимации */
         .delay-1 { transition-delay: 0.05s; }
         .delay-2 { transition-delay: 0.1s; }
         .delay-3 { transition-delay: 0.15s; }
@@ -643,8 +642,8 @@
                     <p><span class="project-title">Volley FVL</span><br>сайт волейбольного клуба</p>
                 </a>
             </div>
-            <p style="text-align: center; margin-top: 40px; color: #7a7a7a; font-size: 13px; letter-spacing: 0.3px;" class="fade-up delay-3">
-                
+            <p style="text-align: center; margin-top: 40px; color: #7a7a7a; font-size: 13px;" class="fade-up delay-3">
+                ※ добавить свои фото — положите в папку images
             </p>
         </div>
     </div>
@@ -739,7 +738,7 @@
         <div class="container" style="text-align: center;">
             <h2 class="fade-up">Давайте работать вместе</h2>
             <p style="font-size: 18px; margin-bottom: 32px; color: #5a5a5a;" class="fade-up delay-1">Расскажите о проекте — я покажу, как сделать его эффективным</p>
-            <a href="https://t.me/fedlers" target="_blank" class="btn fade-up delay-2">Написать в Telegram →</a>
+            <a href="https://t.me/ваш_логин" target="_blank" class="btn fade-up delay-2">Написать в Telegram →</a>
         </div>
     </div>
 
@@ -758,28 +757,12 @@
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                if (entry.target.classList.contains('section')) {
-                    entry.target.classList.add('visible');
-                }
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
     
     animatedElements.forEach(el => observer.observe(el));
-    
-    // Для секций также добавляем класс visible
-    const sections = document.querySelectorAll('.section');
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                sectionObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    sections.forEach(section => sectionObserver.observe(section));
     
     // Плавный скролл для ссылок
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
