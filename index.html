@@ -461,30 +461,36 @@
             }
             
             .hero {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-                min-height: auto;
-                padding: 50px 0 60px;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-                text-align: center;
-            }
-            
-            .hero-photo {
-                max-width: 320px;
-                margin: 0 auto;
-                border-radius: 32px;
-            }
-            
-            /* Линия на мобильных — внизу hero */
-            .hero-line {
-                bottom: 30px;
-                width: 100%;
-                height: 2px;
-            }
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.5rem !important;
+    }
+    .hero-photo {
+        order: -1 !important;
+        max-width: 260px !important;
+        margin: 0 auto !important;
+        border-radius: 20px !important;
+    }
+    .hero-photo img {
+        width: 100% !important;
+        aspect-ratio: 4/5 !important;
+        object-fit: cover !important;
+    }
+    .hero-content h1 {
+        font-size: 2rem !important;
+    }
+    .hero-content .hero-tagline {
+        font-size: 1rem !important;
+    }
+    .btn {
+        display: inline-block !important;
+        padding: 12px 28px !important;
+        font-size: 0.95rem !important;
+    }
+    .hero-line {
+        display: none !important;
+    }
             
             h1 {
                 margin-bottom: 20px;
