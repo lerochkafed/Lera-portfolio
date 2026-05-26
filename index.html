@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Лера Федорцова — веб-дизайнер, который продаёт</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -253,6 +253,53 @@
             border-color: #fff;
         }
 
+        /* Превью для Олеси */
+        .portfolio-preview {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: linear-gradient(160deg, #0A0A0A 0%, #1A0000 60%, #0A0A0A 100%);
+            margin-bottom: 18px;
+            border: 1px solid #333;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-item:hover .portfolio-preview {
+            border-color: #CC0000;
+        }
+
+        .preview-text {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .preview-text .name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .preview-text .surname {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-style: italic;
+            color: #CC0000;
+        }
+
+        .preview-doodle {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.25;
+        }
+
         .portfolio-item p {
             font-size: 15px;
             color: #888;
@@ -440,22 +487,43 @@
         </div>
     </div>
 
+    <!-- ПОРТФОЛИО -->
     <div id="portfolio" class="section">
         <div class="container">
             <h2 class="fade-up">Проекты</h2>
             <div class="portfolio-grid">
+                <!-- Yoga by Akula -->
                 <a href="https://yoga-akula.ru" target="_blank" class="portfolio-item fade-up delay-1">
                     <img src="images/yoga-site.jpg" alt="Yoga by Akula" class="portfolio-img" onerror="this.src='https://placehold.co/800x500/1a1a1a/fff?text=Yoga+by+Akula'">
                     <p><span class="project-title">Yoga by Akula</span><br>сайт йога-клуба с онлайн-практиками</p>
                 </a>
+
+                <!-- Volley FVL -->
                 <a href="https://volley-fvl.ru" target="_blank" class="portfolio-item fade-up delay-2">
                     <img src="images/volley-site.jpg" alt="Volley FVL" class="portfolio-img" onerror="this.src='https://placehold.co/800x500/1a1a1a/fff?text=Volley+FVL'">
                     <p><span class="project-title">Volley FVL</span><br>сайт волейбольного клуба</p>
+                </a>
+
+                <!-- Олеся Андросова — НОВАЯ КАРТОЧКА -->
+                <a href="https://olesex.ru" target="_blank" class="portfolio-item fade-up delay-3">
+                    <div class="portfolio-preview">
+                        <!-- Декоративные фаллосы как на сайте Олеси -->
+                        <svg class="preview-doodle" style="top:15%;left:8%;width:28px;height:55px;transform:rotate(-12deg);" viewBox="0 0 28 58"><ellipse cx="14" cy="16" rx="7" ry="10" fill="#E8C9A0"/><rect x="9" y="25" width="10" height="24" rx="5" fill="#E8C9A0"/></svg>
+                        <svg class="preview-doodle" style="bottom:20%;right:10%;width:22px;height:44px;transform:rotate(15deg);" viewBox="0 0 24 48"><ellipse cx="12" cy="13" rx="6" ry="9" fill="#E8C9A0"/><rect x="7" y="21" width="10" height="20" rx="5" fill="#E8C9A0"/></svg>
+                        <svg class="preview-doodle" style="top:45%;right:20%;width:20px;height:38px;transform:rotate(-8deg);" viewBox="0 0 22 42"><ellipse cx="11" cy="11" rx="6" ry="8" fill="#E8C9A0"/><rect x="6" y="18" width="10" height="18" rx="5" fill="#E8C9A0"/></svg>
+                        <!-- Текст -->
+                        <div class="preview-text">
+                            <div class="name">Олеся</div>
+                            <div class="surname">Андросова</div>
+                        </div>
+                    </div>
+                    <p><span class="project-title">Олеся Андросова</span><br>сайт психолога-сексолога в стиле Playboy</p>
                 </a>
             </div>
         </div>
     </div>
 
+    <!-- УСЛУГИ -->
     <div id="services" class="section">
         <div class="container">
             <h2 class="fade-up">Услуги</h2>
@@ -508,6 +576,7 @@
         </div>
     </div>
 
+    <!-- КАК РАБОТАЮ -->
     <div id="process" class="section">
         <div class="container">
             <h2 class="fade-up">Как я работаю</h2>
@@ -552,6 +621,7 @@
         </div>
     </div>
 
+    <!-- КОНТАКТЫ -->
     <div id="contact" class="section">
         <div class="container" style="text-align:center;">
             <h2 class="fade-up">Работаем вместе</h2>
