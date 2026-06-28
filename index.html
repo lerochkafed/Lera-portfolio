@@ -272,6 +272,25 @@
             border-color: #CC0000;
         }
 
+        /* Превью для Ксюши Голайда */
+        .portfolio-preview-ksusha {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: linear-gradient(160deg, #0A0A0A 0%, #1A0A0A 40%, #0A0A1A 100%);
+            margin-bottom: 18px;
+            border: 1px solid #333;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-item:hover .portfolio-preview-ksusha {
+            border-color: #ffffff;
+        }
+
         .preview-text {
             text-align: center;
             position: relative;
@@ -504,20 +523,29 @@
                     <p><span class="project-title">Volley FVL</span><br>сайт волейбольного клуба</p>
                 </a>
 
-                <!-- Олеся Андросова — НОВАЯ КАРТОЧКА -->
+                <!-- Олеся Андросова -->
                 <a href="https://olesex.ru" target="_blank" class="portfolio-item fade-up delay-3">
                     <div class="portfolio-preview">
-                        <!-- Декоративные фаллосы как на сайте Олеси -->
                         <svg class="preview-doodle" style="top:15%;left:8%;width:28px;height:55px;transform:rotate(-12deg);" viewBox="0 0 28 58"><ellipse cx="14" cy="16" rx="7" ry="10" fill="#E8C9A0"/><rect x="9" y="25" width="10" height="24" rx="5" fill="#E8C9A0"/></svg>
                         <svg class="preview-doodle" style="bottom:20%;right:10%;width:22px;height:44px;transform:rotate(15deg);" viewBox="0 0 24 48"><ellipse cx="12" cy="13" rx="6" ry="9" fill="#E8C9A0"/><rect x="7" y="21" width="10" height="20" rx="5" fill="#E8C9A0"/></svg>
                         <svg class="preview-doodle" style="top:45%;right:20%;width:20px;height:38px;transform:rotate(-8deg);" viewBox="0 0 22 42"><ellipse cx="11" cy="11" rx="6" ry="8" fill="#E8C9A0"/><rect x="6" y="18" width="10" height="18" rx="5" fill="#E8C9A0"/></svg>
-                        <!-- Текст -->
                         <div class="preview-text">
                             <div class="name">Олеся</div>
                             <div class="surname">Андросова</div>
                         </div>
                     </div>
                     <p><span class="project-title">Олеся Андросова</span><br>сайт психолога-сексолога в стиле Playboy</p>
+                </a>
+
+                <!-- КСЮША ГОЛАЙДА — НОВАЯ КАРТОЧКА -->
+                <a href="https://golaida.ru" target="_blank" class="portfolio-item fade-up delay-4">
+                    <div class="portfolio-preview-ksusha">
+                        <div class="preview-text">
+                            <div class="name">Ксюша</div>
+                            <div class="surname">Голайда</div>
+                        </div>
+                    </div>
+                    <p><span class="project-title">Ксюша Голайда</span><br>лендинг для мастер-класса по макияжу</p>
                 </a>
             </div>
         </div>
