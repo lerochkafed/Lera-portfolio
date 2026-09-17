@@ -237,6 +237,24 @@
             transform: translateY(-8px);
         }
 
+        /* Универсальное превью проекта */
+        .portfolio-preview {
+            width: 100%;
+            aspect-ratio: 16/10;
+            margin-bottom: 18px;
+            border: 1px solid #333;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-item:hover .portfolio-preview {
+            border-color: #fff;
+        }
+
         .portfolio-img {
             width: 100%;
             aspect-ratio: 16/10;
@@ -253,48 +271,11 @@
             border-color: #fff;
         }
 
-        /* Превью для Олеси */
-        .portfolio-preview {
-            width: 100%;
-            aspect-ratio: 16/10;
-            background: linear-gradient(160deg, #0A0A0A 0%, #1A0000 60%, #0A0A0A 100%);
-            margin-bottom: 18px;
-            border: 1px solid #333;
-            transition: all 0.4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-item:hover .portfolio-preview {
-            border-color: #CC0000;
-        }
-
-        /* Превью для Ксюши Голайда */
-        .portfolio-preview-ksusha {
-            width: 100%;
-            aspect-ratio: 16/10;
-            background: linear-gradient(160deg, #0A0A0A 0%, #1A0A0A 40%, #0A0A1A 100%);
-            margin-bottom: 18px;
-            border: 1px solid #333;
-            transition: all 0.4s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .portfolio-item:hover .portfolio-preview-ksusha {
-            border-color: #ffffff;
-        }
-
         .preview-text {
             text-align: center;
             position: relative;
             z-index: 1;
+            padding: 20px;
         }
 
         .preview-text .name {
@@ -310,13 +291,87 @@
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.2rem, 2vw, 1.8rem);
             font-style: italic;
-            color: #CC0000;
+        }
+
+        .preview-text .tagline {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 12px;
+            font-weight: 500;
         }
 
         .preview-doodle {
             position: absolute;
             pointer-events: none;
             opacity: 0.25;
+        }
+
+        /* ─── Тема: Рыжий Инструмент ─── */
+        .preview--ryzhiy {
+            background: linear-gradient(160deg, #0A0A0A 0%, #2A1206 60%, #0A0A0A 100%);
+        }
+        .preview--ryzhiy .preview-text .name {
+            color: #FF6B1A;
+            letter-spacing: 2px;
+        }
+        .preview--ryzhiy .preview-text .surname {
+            color: #fff;
+        }
+        .preview--ryzhiy::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,107,26,0.15) 0%, rgba(255,107,26,0) 60%);
+            border-radius: 50%;
+        }
+        .portfolio-item:hover .preview--ryzhiy {
+            border-color: #FF6B1A;
+        }
+
+        /* ─── Тема: Олеся Андросова ─── */
+        .preview--olesya {
+            background: linear-gradient(160deg, #0A0A0A 0%, #1A0000 60%, #0A0A0A 100%);
+        }
+        .preview--olesya .preview-text .surname {
+            color: #CC0000;
+        }
+        .portfolio-item:hover .preview--olesya {
+            border-color: #CC0000;
+        }
+
+        /* ─── Тема: Ксюша Голайда ─── */
+        .preview--ksusha {
+            background: linear-gradient(160deg, #0A0A0A 0%, #1A0A0A 40%, #0A0A1A 100%);
+        }
+        .preview--ksusha .preview-text .name {
+            letter-spacing: 3px;
+        }
+        .preview--ksusha .preview-text .surname {
+            color: #E8A0A0;
+        }
+        .portfolio-item:hover .preview--ksusha {
+            border-color: #ffffff;
+        }
+
+        /* ─── Тема: Сафоль ─── */
+        .preview--safol {
+            background: linear-gradient(160deg, #0A0A0A 0%, #1A1408 60%, #0A0A0A 100%);
+        }
+        .preview--safol .preview-text .name {
+            color: #C9A961;
+            letter-spacing: 4px;
+        }
+        .preview--safol .preview-text .surname {
+            color: #fff;
+            font-style: normal;
+        }
+        .portfolio-item:hover .preview--safol {
+            border-color: #C9A961;
         }
 
         .portfolio-item p {
@@ -507,46 +562,86 @@
     </div>
 
     <!-- ПОРТФОЛИО -->
-<div id="portfolio" class="section">
-    <div class="container">
-        <h2 class="fade-up">Проекты</h2>
-        <div class="portfolio-grid">
-            <!-- Volley FVL -->
-            <a href="https://volley-fvl.ru" target="_blank" class="portfolio-item fade-up delay-2">
-                <img src="images/volley-site.jpg" alt="Volley FVL" class="portfolio-img" onerror="this.src='https://placehold.co/800x500/1a1a1a/fff?text=Volley+FVL'">
-                <p><span class="project-title">Volley FVL</span><br>сайт волейбольного клуба</p>
-            </a>
+    <div id="portfolio" class="section">
+        <div class="container">
+            <h2 class="fade-up">Проекты</h2>
+            <div class="portfolio-grid">
 
-            <!-- Олеся Андросова -->
-            <a href="https://olesex.ru" target="_blank" class="portfolio-item fade-up delay-3">
-                <div class="portfolio-preview">
-                    <svg class="preview-doodle" style="top:15%;left:8%;width:28px;height:55px;transform:rotate(-12deg);" viewBox="0 0 28 58"><ellipse cx="14" cy="16" rx="7" ry="10" fill="#E8C9A0"/><rect x="9" y="25" width="10" height="24" rx="5" fill="#E8C9A0"/></svg>
-                    <svg class="preview-doodle" style="bottom:20%;right:10%;width:22px;height:44px;transform:rotate(15deg);" viewBox="0 0 24 48"><ellipse cx="12" cy="13" rx="6" ry="9" fill="#E8C9A0"/><rect x="7" y="21" width="10" height="20" rx="5" fill="#E8C9A0"/></svg>
-                    <svg class="preview-doodle" style="top:45%;right:20%;width:20px;height:38px;transform:rotate(-8deg);" viewBox="0 0 22 42"><ellipse cx="11" cy="11" rx="6" ry="8" fill="#E8C9A0"/><rect x="6" y="18" width="10" height="18" rx="5" fill="#E8C9A0"/></svg>
-                    <div class="preview-text">
-                        <div class="name">Олеся</div>
-                        <div class="surname">Андросова</div>
+                <!-- ═══ РЫЖИЙ ИНСТРУМЕНТ — вместо Volley FVL ═══ -->
+                <a href="https://ryzhiy-instrument.ru" target="_blank" rel="noopener" class="portfolio-item fade-up delay-2">
+                    <img src="images/ryzhiy-instrument-site.jpg" alt="Рыжий Инструмент — интернет-магазин инструментов" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-preview preview--ryzhiy" style="display:none;">
+                        <svg class="preview-doodle" style="top:15%;left:10%;width:60px;height:60px;transform:rotate(-15deg);" viewBox="0 0 60 60">
+                            <path d="M20 15 L40 15 L45 30 L15 30 Z" fill="#FF6B1A" opacity="0.5"/>
+                            <rect x="25" y="30" width="10" height="20" rx="2" fill="#FF6B1A" opacity="0.5"/>
+                        </svg>
+                        <svg class="preview-doodle" style="bottom:20%;right:12%;width:50px;height:50px;transform:rotate(20deg);" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="18" fill="none" stroke="#FF6B1A" stroke-width="3" opacity="0.5"/>
+                            <circle cx="30" cy="30" r="6" fill="#FF6B1A" opacity="0.5"/>
+                        </svg>
+                        <div class="preview-text">
+                            <div class="name">Рыжий</div>
+                            <div class="surname">Инструмент</div>
+                            <div class="tagline">интернет-магазин</div>
+                        </div>
                     </div>
-                </div>
-                <p><span class="project-title">Олеся Андросова</span><br>сайт психолога-сексолога в стиле Playboy</p>
-            </a>
+                    <p><span class="project-title">Рыжий Инструмент</span><br>интернет-магазин профессионального инструмента</p>
+                </a>
 
-            <!-- КСЮША ГОЛАЙДА -->
-            <a href="https://golaida.ru" target="_blank" class="portfolio-item fade-up delay-4">
-                <img src="images/ksusha-site.jpg" alt="Ксюша Голайда" class="portfolio-img" onerror="this.src='https://placehold.co/800x500/1a1a1a/fff?text=Ксюша+Голайда'">
-                <p><span class="project-title">Ксюша Голайда</span><br>лендинг для мастер-класса по макияжу</p>
-            </a>
+                <!-- ═══ ОЛЕСЯ АНДРОСОВА ═══ -->
+                <a href="https://olesex.ru" target="_blank" rel="noopener" class="portfolio-item fade-up delay-3">
+                    <img src="images/olesya-site.jpg" alt="Олеся Андросова — сайт психолога" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-preview preview--olesya" style="display:none;">
+                        <svg class="preview-doodle" style="top:15%;left:8%;width:28px;height:55px;transform:rotate(-12deg);" viewBox="0 0 28 58"><ellipse cx="14" cy="16" rx="7" ry="10" fill="#E8C9A0"/><rect x="9" y="25" width="10" height="24" rx="5" fill="#E8C9A0"/></svg>
+                        <svg class="preview-doodle" style="bottom:20%;right:10%;width:22px;height:44px;transform:rotate(15deg);" viewBox="0 0 24 48"><ellipse cx="12" cy="13" rx="6" ry="9" fill="#E8C9A0"/><rect x="7" y="21" width="10" height="20" rx="5" fill="#E8C9A0"/></svg>
+                        <svg class="preview-doodle" style="top:45%;right:20%;width:20px;height:38px;transform:rotate(-8deg);" viewBox="0 0 22 42"><ellipse cx="11" cy="11" rx="6" ry="8" fill="#E8C9A0"/><rect x="6" y="18" width="10" height="18" rx="5" fill="#E8C9A0"/></svg>
+                        <div class="preview-text">
+                            <div class="name">Олеся</div>
+                            <div class="surname">Андросова</div>
+                            <div class="tagline">психолог-сексолог</div>
+                        </div>
+                    </div>
+                    <p><span class="project-title">Олеся Андросова</span><br>сайт психолога-сексолога</p>
+                </a>
 
-            <!-- САФОЛЬ — НОВЫЙ ПРОЕКТ -->
-            <a href="https://safol-mebel.ru" target="_blank" class="portfolio-item fade-up delay-1">
-                <img src="images/safol-site.jpg" alt="Сафоль — мебель из фанеры" class="portfolio-img" onerror="this.style.display='none'">
-                <p><span class="project-title">Сафоль</span><br>сайт производителя мебели из фанеры</p>
-            </a>
+                <!-- ═══ КСЮША ГОЛАЙДА ═══ -->
+                <a href="https://golaida.ru" target="_blank" rel="noopener" class="portfolio-item fade-up delay-4">
+                    <img src="images/ksusha-site.jpg" alt="Ксюша Голайда — лендинг мастер-класса" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-preview preview--ksusha" style="display:none;">
+                        <svg class="preview-doodle" style="top:20%;left:12%;width:40px;height:40px;" viewBox="0 0 40 40">
+                            <circle cx="20" cy="20" r="15" fill="none" stroke="#E8A0A0" stroke-width="2" opacity="0.6"/>
+                        </svg>
+                        <div class="preview-text">
+                            <div class="name">Ксюша</div>
+                            <div class="surname">Голайда</div>
+                            <div class="tagline">мастер-класс</div>
+                        </div>
+                    </div>
+                    <p><span class="project-title">Ксюша Голайда</span><br>лендинг для мастер-класса по макияжу</p>
+                </a>
+
+                <!-- ═══ САФОЛЬ ═══ -->
+                <a href="https://safol-mebel.ru" target="_blank" rel="noopener" class="portfolio-item fade-up delay-1">
+                    <img src="images/safol-site.jpg" alt="Сафоль — мебель из фанеры" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="portfolio-preview preview--safol" style="display:none;">
+                        <svg class="preview-doodle" style="top:18%;right:15%;width:55px;height:55px;" viewBox="0 0 60 60">
+                            <rect x="15" y="20" width="30" height="25" rx="2" fill="none" stroke="#C9A961" stroke-width="2" opacity="0.6"/>
+                            <line x1="15" y1="30" x2="45" y2="30" stroke="#C9A961" stroke-width="2" opacity="0.6"/>
+                        </svg>
+                        <div class="preview-text">
+                            <div class="name">Сафоль</div>
+                            <div class="surname">мебель</div>
+                            <div class="tagline">из фанеры</div>
+                        </div>
+                    </div>
+                    <p><span class="project-title">Сафоль</span><br>сайт производителя мебели из фанеры</p>
+                </a>
+
+            </div>
         </div>
     </div>
-</div>
 
-    <!-- УСЛУГИ — ЦЕНЫ ПОДНЯТЫ НА 5К -->
+    <!-- УСЛУГИ -->
     <div id="services" class="section">
         <div class="container">
             <h2 class="fade-up">Услуги</h2>
@@ -649,7 +744,7 @@
         <div class="container" style="text-align:center;">
             <h2 class="fade-up">Работаем вместе</h2>
             <p style="color:#888; margin-bottom:32px;" class="fade-up delay-1">Расскажите о проекте — я покажу решение</p>
-            <a href="https://t.me/fedlers" target="_blank" class="btn fade-up delay-2">Написать в Telegram</a>
+            <a href="https://t.me/fedlers" target="_blank" rel="noopener" class="btn fade-up delay-2">Написать в Telegram</a>
         </div>
     </div>
 
