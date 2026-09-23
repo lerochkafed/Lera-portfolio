@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Лера Федорцова — веб-дизайнер, который продаёт</title>
+    <title>Лера Федорцова — веб-разработчик, который продаёт</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -237,7 +237,6 @@
             transform: translateY(-8px);
         }
 
-        /* Универсальное превью проекта */
         .portfolio-preview {
             width: 100%;
             aspect-ratio: 16/10;
@@ -308,71 +307,32 @@
             opacity: 0.25;
         }
 
-        /* ─── Тема: Рыжий Инструмент ─── */
         .preview--ryzhiy {
             background: linear-gradient(160deg, #0A0A0A 0%, #2A1206 60%, #0A0A0A 100%);
         }
-        .preview--ryzhiy .preview-text .name {
-            color: #FF6B1A;
-            letter-spacing: 2px;
-        }
-        .preview--ryzhiy .preview-text .surname {
-            color: #fff;
-        }
-        .preview--ryzhiy::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,107,26,0.15) 0%, rgba(255,107,26,0) 60%);
-            border-radius: 50%;
-        }
-        .portfolio-item:hover .preview--ryzhiy {
-            border-color: #FF6B1A;
-        }
+        .preview--ryzhiy .preview-text .name { color: #FF6B1A; letter-spacing: 2px; }
+        .preview--ryzhiy .preview-text .surname { color: #fff; }
+        .portfolio-item:hover .preview--ryzhiy { border-color: #FF6B1A; }
 
-        /* ─── Тема: Олеся Андросова ─── */
         .preview--olesya {
             background: linear-gradient(160deg, #0A0A0A 0%, #1A0000 60%, #0A0A0A 100%);
         }
-        .preview--olesya .preview-text .surname {
-            color: #CC0000;
-        }
-        .portfolio-item:hover .preview--olesya {
-            border-color: #CC0000;
-        }
+        .preview--olesya .preview-text .surname { color: #CC0000; }
+        .portfolio-item:hover .preview--olesya { border-color: #CC0000; }
 
-        /* ─── Тема: Ксюша Голайда ─── */
         .preview--ksusha {
             background: linear-gradient(160deg, #0A0A0A 0%, #1A0A0A 40%, #0A0A1A 100%);
         }
-        .preview--ksusha .preview-text .name {
-            letter-spacing: 3px;
-        }
-        .preview--ksusha .preview-text .surname {
-            color: #E8A0A0;
-        }
-        .portfolio-item:hover .preview--ksusha {
-            border-color: #ffffff;
-        }
+        .preview--ksusha .preview-text .name { letter-spacing: 3px; }
+        .preview--ksusha .preview-text .surname { color: #E8A0A0; }
+        .portfolio-item:hover .preview--ksusha { border-color: #ffffff; }
 
-        /* ─── Тема: Сафоль ─── */
         .preview--safol {
             background: linear-gradient(160deg, #0A0A0A 0%, #1A1408 60%, #0A0A0A 100%);
         }
-        .preview--safol .preview-text .name {
-            color: #C9A961;
-            letter-spacing: 4px;
-        }
-        .preview--safol .preview-text .surname {
-            color: #fff;
-            font-style: normal;
-        }
-        .portfolio-item:hover .preview--safol {
-            border-color: #C9A961;
-        }
+        .preview--safol .preview-text .name { color: #C9A961; letter-spacing: 4px; }
+        .preview--safol .preview-text .surname { color: #fff; font-style: normal; }
+        .portfolio-item:hover .preview--safol { border-color: #C9A961; }
 
         .portfolio-item p {
             font-size: 15px;
@@ -494,9 +454,7 @@
                 max-width: 300px;
                 margin: 0 auto;
             }
-            .hero-photo::before {
-                display: none;
-            }
+            .hero-photo::before { display: none; }
             .hero-text {
                 padding-right: 0;
                 align-items: center;
@@ -505,9 +463,7 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
-            .hero-tagline {
-                max-width: 100%;
-            }
+            .hero-tagline { max-width: 100%; }
             .services-grid,
             .portfolio-grid,
             .steps-grid { grid-template-columns: 1fr; }
@@ -548,10 +504,10 @@
     <div class="container">
         <div class="hero" id="hero">
             <div class="hero-text">
-                <div class="hero-label fade-up visible">Веб-дизайнер, который продаёт</div>
+                <div class="hero-label fade-up visible">Веб-разработчик, который продаёт</div>
                 <h1 class="fade-up visible">Лера<br>Федорцова</h1>
                 <p class="hero-tagline fade-up visible delay-1">
-                    Создаю сайты, которые решают задачи бизнеса. С пониманием маркетинга и аудитории.
+                    Создаю сайты, которые решают задачи бизнеса. Дизайн, вёрстка, интеграции, автоматизация.
                 </p>
                 <a href="#portfolio" class="btn fade-up visible delay-2">Смотреть работы</a>
             </div>
@@ -567,7 +523,7 @@
             <h2 class="fade-up">Проекты</h2>
             <div class="portfolio-grid">
 
-                <!-- ═══ РЫЖИЙ ИНСТРУМЕНТ — вместо Volley FVL ═══ -->
+                <!-- РЫЖИЙ ИНСТРУМЕНТ -->
                 <a href="https://ryzhiy-instrument.ru" target="_blank" rel="noopener" class="portfolio-item fade-up delay-2">
                     <img src="images/ryzhiy-instrument-site.jpg" alt="Рыжий Инструмент — интернет-магазин инструментов" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="portfolio-preview preview--ryzhiy" style="display:none;">
@@ -588,7 +544,7 @@
                     <p><span class="project-title">Рыжий Инструмент</span><br>интернет-магазин профессионального инструмента</p>
                 </a>
 
-                <!-- ═══ ОЛЕСЯ АНДРОСОВА ═══ -->
+                <!-- ОЛЕСЯ АНДРОСОВА -->
                 <a href="https://olesex.ru" target="_blank" rel="noopener" class="portfolio-item fade-up delay-3">
                     <img src="images/olesya-site.jpg" alt="Олеся Андросова — сайт психолога" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="portfolio-preview preview--olesya" style="display:none;">
@@ -604,7 +560,7 @@
                     <p><span class="project-title">Олеся Андросова</span><br>сайт психолога-сексолога</p>
                 </a>
 
-                <!-- ═══ КСЮША ГОЛАЙДА ═══ -->
+                <!-- КСЮША ГОЛАЙДА -->
                 <a href="https://golaida.ru" target="_blank" rel="noopener" class="portfolio-item fade-up delay-4">
                     <img src="images/ksusha-site.jpg" alt="Ксюша Голайда — лендинг мастер-класса" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="portfolio-preview preview--ksusha" style="display:none;">
@@ -620,7 +576,7 @@
                     <p><span class="project-title">Ксюша Голайда</span><br>лендинг для мастер-класса по макияжу</p>
                 </a>
 
-                <!-- ═══ САФОЛЬ ═══ -->
+                <!-- САФОЛЬ -->
                 <a href="https://safol-mebel.ru" target="_blank" rel="noopener" class="portfolio-item fade-up delay-1">
                     <img src="images/safol-site.jpg" alt="Сафоль — мебель из фанеры" class="portfolio-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="portfolio-preview preview--safol" style="display:none;">
@@ -648,45 +604,48 @@
             <div class="services-grid">
                 <div class="service-card fade-up delay-1">
                     <h3>Лендинг</h3>
-                    <div class="price">20 000 — 35 000 ₽</div>
+                    <div class="price">40 000 — 60 000 ₽</div>
                     <ul class="service-list">
                         <li>Анализ ЦА и структуры</li>
                         <li>Дизайн и адаптивная вёрстка</li>
                         <li>Анимации и эффекты</li>
+                        <li>Формы заявок с отправкой в Telegram</li>
                         <li>Правки и поддержка 14 дней</li>
                     </ul>
                     <a href="#contact" class="btn">Заказать →</a>
                 </div>
                 <div class="service-card fade-up delay-2">
                     <h3>Многостраничный сайт</h3>
-                    <div class="price">35 000 — 55 000 ₽</div>
+                    <div class="price">70 000 — 110 000 ₽</div>
                     <ul class="service-list">
                         <li>Прототипирование и UX</li>
                         <li>Уникальный дизайн</li>
                         <li>Чистая вёрстка HTML/CSS/JS</li>
+                        <li>Каталог с фильтрами и корзиной</li>
                         <li>Базовая SEO-оптимизация</li>
                     </ul>
                     <a href="#contact" class="btn">Заказать →</a>
                 </div>
                 <div class="service-card fade-up delay-3">
-                    <h3>Сайт под ключ</h3>
-                    <div class="price">55 000 — 75 000 ₽</div>
+                    <h3>Интеграции и автоматизация</h3>
+                    <div class="price">от 30 000 ₽</div>
                     <ul class="service-list">
-                        <li>Всё из предыдущих тарифов</li>
-                        <li>Интеграция с Telegram/Instagram</li>
-                        <li>Подключение форм и оплаты</li>
-                        <li>Поддержка после запуска</li>
+                        <li>Подключение платёжных систем</li>
+                        <li>Интеграция с CRM</li>
+                        <li>Синхронизация данных</li>
+                        <li>Уведомления и боты</li>
+                        <li>Автоматические рассылки</li>
                     </ul>
                     <a href="#contact" class="btn">Заказать →</a>
                 </div>
                 <div class="service-card fade-up delay-4">
-                    <h3>Поддержка</h3>
-                    <div class="price">2 000 — 5 000 ₽/мес</div>
+                    <h3>Поддержка и сопровождение</h3>
+                    <div class="price">5 000 — 10 000 ₽/мес</div>
                     <ul class="service-list">
                         <li>Регулярные обновления</li>
                         <li>Правки контента</li>
                         <li>Консультации 24/7</li>
-                        <li>Администрирование</li>
+                        <li>Администрирование и мониторинг</li>
                     </ul>
                     <a href="#contact" class="btn">Заказать →</a>
                 </div>
@@ -711,8 +670,8 @@
                 </div>
                 <div class="step fade-up delay-3">
                     <div class="step-number">03</div>
-                    <h3>Вёрстка</h3>
-                    <p style="color:#888">Чистый HTML/CSS/JS, анимации, эффекты.</p>
+                    <h3>Вёрстка и интеграции</h3>
+                    <p style="color:#888">Чистый HTML/CSS/JS, формы, оплата, CRM, автоматизация.</p>
                 </div>
                 <div class="step fade-up delay-4">
                     <div class="step-number">04</div>
@@ -722,15 +681,18 @@
             </div>
 
             <div class="support-card fade-up" style="margin-bottom: 32px;">
-                <h3>Поддержка после запуска</h3>
-                <p style="color:#888; margin: 12px 0;">Помогаю с управлением, вношу правки — оплата по факту.</p>
-                <span style="font-weight:700;">3 000 — 6 000 ₽/мес</span>
+                <h3>Технические возможности</h3>
+                <p style="color:#888; margin: 12px 0; line-height:1.7;">
+                    Работаю с платежами, доставками, синхронизациями, автоматизациями, ботами, 
+                    онлайн-примерками, анимациями, каталогами, фильтрами, парсингами.
+                </p>
             </div>
 
             <div class="support-card fade-up">
                 <h3>Условия работы</h3>
                 <p style="color:#888; line-height:1.6; margin:12px 0;">
-                    Предоплата <strong style="color:#fff">30%</strong> от стоимости.<br><br>
+                    Работаю по договору. Оформлена как <strong style="color:#fff">самозанятая</strong> — выдаю чек после оплаты.<br><br>
+                    Предоплата <strong style="color:#fff">50%</strong> от стоимости.<br><br>
                     • Начата работа — возврат <strong style="color:#fff">50%</strong> от предоплаты<br>
                     • Работа не начата — возврат <strong style="color:#fff">100%</strong>
                 </p>
@@ -743,13 +705,21 @@
     <div id="contact" class="section">
         <div class="container" style="text-align:center;">
             <h2 class="fade-up">Работаем вместе</h2>
-            <p style="color:#888; margin-bottom:32px;" class="fade-up delay-1">Расскажите о проекте — я покажу решение</p>
+            <p style="color:#888; margin-bottom:32px;" class="fade-up delay-1">
+                Расскажите о проекте — я покажу решение.<br>
+                <span style="font-size:13px; color:#666;">Работаю по договору, оформлена как самозанятая</span>
+            </p>
             <a href="https://t.me/fedlers" target="_blank" rel="noopener" class="btn fade-up delay-2">Написать в Telegram</a>
         </div>
     </div>
 
     <div class="footer">
-        <div class="container">© Лера Федорцова — веб-дизайнер, 2026</div>
+        <div class="container">
+            © Лера Федорцова — веб-разработчик, 2026<br>
+            <span style="font-size:11px; color:#444; margin-top:8px; display:inline-block;">
+                Работаю по договору · Самозанятая · Чек после оплаты
+            </span>
+        </div>
     </div>
 </main>
 
